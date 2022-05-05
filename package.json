@@ -8,7 +8,7 @@
   "license": "ISC",
   "scripts": {
     "test": "vitest",
-    "coverage": "vitest coverage"
+    "coverage": "vitest --coverage"
   },
   "devDependencies": {
     "@types/node": "^17.0.31",
