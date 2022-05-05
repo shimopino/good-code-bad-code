@@ -1,3 +1,5 @@
 export class Enemy {
-  constructor(private defence: number) {}
+  public defence() {
+    return 0;
+  }
 }
