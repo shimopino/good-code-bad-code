@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { DamageLogicV1 } from './DamageLogicV1';
 import { DamageLogicV2 } from './DamageLogicV2';
 import { DamageLogicV3 } from './DamageLogicV3';
+import { DamageLogicV4 } from './DamageLogicV4';
 
 /**
  * ダメージの計算ロジック
@@ -32,6 +33,16 @@ describe('DomageLogic', () => {
 
   it('[V3] ダメージ量を計算できる', () => {
     const damage = new DamageLogicV3(10, 20, 5, 10);
+
+    expect(damage.getDamage()).toBe(10 + 20 - (5 + 10) / 2);
+  });
+
+  /**
+   * コピペミスで同じ変数で足し算してたけど、単体テストのおかげでミスに気づけた
+   * やはりリファクタリングにはテストが必要
+   */
+  it('[V4] ダメージ量を計算できる', () => {
+    const damage = new DamageLogicV4(10, 20, 5, 10);
 
     expect(damage.getDamage()).toBe(10 + 20 - (5 + 10) / 2);
   });
