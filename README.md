@@ -4,6 +4,10 @@
 
 TypeScript はマルチパラダイムな言語なので、本書で言及しているオブジェクト指向に寄せた設計と、関数型プログラミングに寄せた設計も書いていきたい。
 
+テスト関連の書籍個人的にで最もおすすめしている [Unit Testing Principles, Practices, and Patterns](https://www.manning.com/books/unit-testing?query=testing) では、テストの品質を向上させるにはプロダクションコード側の設計を改善することも必要不可欠であると述べている。（同意見）
+
+本書のサンプルコードを TDD で記述していくことで、上記の書籍で伝えている内容が本当なのか手を動かして検証する。
+
 ## 環境構築
 
 - [Vitest](https://vitest.dev/guide/) を使用する
