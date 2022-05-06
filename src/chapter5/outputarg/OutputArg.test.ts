@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { ActorManagerV1 } from './ActorManagerV1';
 import { LocationV1 } from './LocationV1';
+import { LocationV2 } from './LocationV2';
 
 describe('OutputArg', () => {
   describe('V1', () => {
@@ -15,6 +16,13 @@ describe('OutputArg', () => {
   });
 
   describe('V2', () => {
-    it.todo('操作されるデータ側にロジックを集約させる');
+    it('操作されるデータ側にロジックを集約させる', () => {
+      const location = new LocationV2(0, 0);
+
+      const shifted = location.shift(10, 5);
+
+      expect(location).toEqual(new LocationV2(0, 0));
+      expect(shifted).toEqual(new LocationV2(10, 5));
+    });
   });
 });
