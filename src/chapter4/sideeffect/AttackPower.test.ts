@@ -71,4 +71,10 @@ describe('AttackPower', () => {
       expect(attackPower).toEqual(new AttackPowerV2(0));
     });
   });
+
+  describe('V3', () => {
+    it.todo('攻撃力を変更して元のインスタンスに影響を与えない');
+    it.todo('攻撃力を無力化しても元のインスタンスに影響を与えない');
+    it.todo('親となるWeapon側から攻撃力を変更できる');
+  });
 });
