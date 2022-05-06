@@ -1,14 +1,14 @@
 import { describe, expect, it } from 'vitest';
-import { AttackPower } from './AttackPower';
-import { Weapon } from './Weapon';
+import { AttackPowerV1 } from './AttackPowerV1';
+import { WeaponV1 } from './WeaponV1';
 
 describe('AttackPower', () => {
   describe('V1', () => {
     it('AttackPowerインスタンスを使い回す', () => {
-      const attackPower = new AttackPower(20);
+      const attackPower = new AttackPowerV1(20);
 
-      const weaponA = new Weapon(attackPower);
-      const weaponB = new Weapon(attackPower);
+      const weaponA = new WeaponV1(attackPower);
+      const weaponB = new WeaponV1(attackPower);
 
       /**
        * 同じインスタンスを参照しているので、toEqualではなく
@@ -19,10 +19,10 @@ describe('AttackPower', () => {
     });
 
     it('使いまわしている攻撃力を途中で変更すると...', () => {
-      const attackPower = new AttackPower(20);
+      const attackPower = new AttackPowerV1(20);
 
-      const weaponA = new Weapon(attackPower);
-      const weaponB = new Weapon(attackPower);
+      const weaponA = new WeaponV1(attackPower);
+      const weaponB = new WeaponV1(attackPower);
 
       expect(weaponA.attackPower).toBe(attackPower);
       expect(weaponB.attackPower).toBe(attackPower);
@@ -35,11 +35,11 @@ describe('AttackPower', () => {
     });
 
     it('個別にインスタンスを生成する', () => {
-      const attackPowerA = new AttackPower(20);
-      const attackPowerB = new AttackPower(20);
+      const attackPowerA = new AttackPowerV1(20);
+      const attackPowerB = new AttackPowerV1(20);
 
-      const weaponA = new Weapon(attackPowerA);
-      const weaponB = new Weapon(attackPowerB);
+      const weaponA = new WeaponV1(attackPowerA);
+      const weaponB = new WeaponV1(attackPowerB);
 
       expect(weaponA.attackPower.power).toBe(20);
       expect(weaponA.attackPower.power).toBe(20);
