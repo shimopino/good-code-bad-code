@@ -17,4 +17,11 @@ export class AttackPowerV2 {
   public reinForce(increment: number) {
     this.power += increment;
   }
+
+  /**
+   * 無力化する
+   */
+  public disable() {
+    this.power = AttackPowerV2.MIN;
+  }
 }

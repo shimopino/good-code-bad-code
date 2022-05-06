@@ -63,6 +63,12 @@ describe('AttackPower', () => {
       expect(attackPower).toEqual(new AttackPowerV2(35));
     });
 
-    it.todo('攻撃力を無効化する');
+    it('攻撃力を無効化する', () => {
+      const attackPower = new AttackPowerV2(20);
+
+      attackPower.disable();
+
+      expect(attackPower).toEqual(new AttackPowerV2(0));
+    });
   });
 });
