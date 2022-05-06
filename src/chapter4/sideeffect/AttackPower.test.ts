@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { AttackPowerV1 } from './AttackPowerV1';
+import { AttackPowerV2 } from './AttackPowerV2';
 import { WeaponV1 } from './WeaponV1';
 
 describe('AttackPower', () => {
@@ -53,7 +54,14 @@ describe('AttackPower', () => {
   });
 
   describe('V2', () => {
-    it.todo('攻撃力を強化するメソッド経由でアクセスする');
+    it('攻撃力を強化するメソッド経由でアクセスする', () => {
+      const attackPower = new AttackPowerV2(20);
+
+      // 内部の状態を変更する
+      attackPower.reinForce(15);
+
+      expect(attackPower).toEqual(new AttackPowerV2(35));
+    });
 
     it.todo('攻撃力を無効化する');
   });
