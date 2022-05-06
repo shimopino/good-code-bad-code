@@ -1,7 +1,7 @@
 import { AttackPowerV3 } from './AttackPowerV3';
 
 export class WeaponV3 {
-  public attackPower: AttackPowerV3;
+  private readonly attackPower: AttackPowerV3;
 
   constructor(attackPower: AttackPowerV3) {
     this.attackPower = attackPower;

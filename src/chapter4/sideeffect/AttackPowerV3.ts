@@ -1,6 +1,6 @@
 export class AttackPowerV3 {
   private static MIN = 0;
-  private power: number;
+  private readonly power: number;
 
   constructor(power: number) {
     if (power < AttackPowerV3.MIN) {
