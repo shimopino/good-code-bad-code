@@ -14,8 +14,8 @@ export class AttackPowerV3 {
    * 攻撃力を強化する
    * @param increment 攻撃力の増分
    */
-  public reinForce(increment: number) {
-    return new AttackPowerV3(this.power + increment);
+  public reinForce(increment: AttackPowerV3) {
+    return new AttackPowerV3(this.power + increment.power);
   }
 
   /**

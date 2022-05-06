@@ -77,7 +77,7 @@ describe('AttackPower', () => {
     it('攻撃力を変更して元のインスタンスに影響を与えない', () => {
       const attackPower = new AttackPowerV3(20);
 
-      const reinForce = attackPower.reinForce(10);
+      const reinForce = attackPower.reinForce(new AttackPowerV3(10));
 
       expect(attackPower).toEqual(new AttackPowerV3(20));
       expect(reinForce).toEqual(new AttackPowerV3(30));
