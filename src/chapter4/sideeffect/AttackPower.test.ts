@@ -3,6 +3,7 @@ import { AttackPowerV1 } from './AttackPowerV1';
 import { AttackPowerV2 } from './AttackPowerV2';
 import { AttackPowerV3 } from './AttackPowerV3';
 import { WeaponV1 } from './WeaponV1';
+import { WeaponV3 } from './WeaponV3';
 
 describe('AttackPower', () => {
   describe('V1', () => {
@@ -92,6 +93,19 @@ describe('AttackPower', () => {
       expect(disabled).toEqual(new AttackPowerV3(0));
     });
 
-    it.todo('親となるWeapon側から攻撃力を変更できる');
+    it('親となるWeapon側から攻撃力を変更できる', () => {
+      const attackPowerA = new AttackPowerV3(20);
+      const attackPowerB = new AttackPowerV3(20);
+
+      const weaponA = new WeaponV3(attackPowerA);
+      const weaponB = new WeaponV3(attackPowerB);
+
+      const increment = new AttackPowerV3(10);
+      const reinForced = weaponA.reinForce(increment);
+
+      expect(weaponA.attackPower).toEqual(new AttackPowerV3(20));
+      expect(weaponB.attackPower).toEqual(new AttackPowerV3(20));
+      expect(reinForced).toEqual(new WeaponV3(new AttackPowerV3(30)));
+    });
   });
 });
