@@ -51,4 +51,10 @@ describe('AttackPower', () => {
       expect(weaponB.attackPower.power).toBe(20);
     });
   });
+
+  describe('V2', () => {
+    it.todo('攻撃力を強化するメソッド経由でアクセスする');
+
+    it.todo('攻撃力を無効化する');
+  });
 });
