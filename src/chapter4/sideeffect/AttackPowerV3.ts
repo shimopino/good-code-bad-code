@@ -22,6 +22,6 @@ export class AttackPowerV3 {
    * 無力化する
    */
   public disable() {
-    this.power = AttackPowerV3.MIN;
+    return new AttackPowerV3(AttackPowerV3.MIN);
   }
 }
