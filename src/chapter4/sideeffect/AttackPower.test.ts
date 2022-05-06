@@ -73,7 +73,15 @@ describe('AttackPower', () => {
   });
 
   describe('V3', () => {
-    it.todo('攻撃力を変更して元のインスタンスに影響を与えない');
+    it('攻撃力を変更して元のインスタンスに影響を与えない', () => {
+      const attackPower = new AttackPowerV3(20);
+
+      const reinForce = attackPower.increment(10);
+
+      expect(attackPower).toEqual(new attackPower(20));
+      expect(reinForce).toEqual(new AttackPowerV3(30));
+    });
+
     it.todo('攻撃力を無力化しても元のインスタンスに影響を与えない');
     it.todo('親となるWeapon側から攻撃力を変更できる');
   });
