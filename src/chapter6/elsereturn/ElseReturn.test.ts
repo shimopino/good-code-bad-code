@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { Member } from './Member';
 import { ElseLogicV1 } from './ElseLogicV1';
 import { ElseLogicV2 } from './ElseLogicV2';
+import { ElseLogicV3 } from './ElseLogicV3';
 
 describe('EarlyReturn', () => {
   describe('V1', () => {
@@ -32,6 +33,22 @@ describe('EarlyReturn', () => {
       expect(dangerHp.getCondition()).toBe('danger');
 
       const deadHp = new ElseLogicV2(new Member(0, 100));
+      expect(deadHp.getCondition()).toBe('dead');
+    });
+  });
+
+  describe('V3', () => {
+    it('ELSEの各条件に対して早期リターンを行う', () => {
+      const findHp = new ElseLogicV3(new Member(100, 100));
+      expect(findHp.getCondition()).toBe('fine');
+
+      const cautionHp = new ElseLogicV3(new Member(40, 100));
+      expect(cautionHp.getCondition()).toBe('caution');
+
+      const dangerHp = new ElseLogicV3(new Member(20, 100));
+      expect(dangerHp.getCondition()).toBe('danger');
+
+      const deadHp = new ElseLogicV3(new Member(0, 100));
       expect(deadHp.getCondition()).toBe('dead');
     });
   });
