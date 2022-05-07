@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { MagicManagerV1 } from './MagicManagerV1';
 import { MagicManagerV2 } from './MagicManagerV2';
+import { MagicV3 } from './MagicV3';
+import { Member } from './Member';
 
 describe('EarlyReturn', () => {
   describe('V1', () => {
@@ -32,6 +34,36 @@ describe('EarlyReturn', () => {
       // 追加漏れ
       expect(magicManager.attackPower('fire')).toBe(5);
       expect(magicManager.attackPower('shiden')).toBe(10);
+    });
+  });
+
+  describe('V2', () => {
+    it('複製されていた switch 文を1つのクラス内に集約する', () => {
+      const member = new Member(10, 10, 10, 10);
+
+      const fire = new MagicV3('fire', member);
+      expect(fire).toEqual({
+        name: 'ファイア',
+        costMagicPoint: 2,
+        attackPower: 25,
+        costTechnicalPoint: 0,
+      });
+
+      const shiden = new MagicV3('shiden', member);
+      expect(shiden).toEqual({
+        name: '紫電',
+        costMagicPoint: 7,
+        attackPower: 65,
+        costTechnicalPoint: 5,
+      });
+
+      const hellFire = new MagicV3('hellFire', member);
+      expect(hellFire).toEqual({
+        name: '地獄の業火',
+        costMagicPoint: 16,
+        attackPower: 225,
+        costTechnicalPoint: 24,
+      });
     });
   });
 });
