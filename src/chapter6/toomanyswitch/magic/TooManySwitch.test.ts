@@ -37,7 +37,7 @@ describe('EarlyReturn', () => {
     });
   });
 
-  describe('V2', () => {
+  describe('V3', () => {
     it('複製されていた switch 文を1つのクラス内に集約する', () => {
       const member = new Member(10, 10, 10, 10);
 
