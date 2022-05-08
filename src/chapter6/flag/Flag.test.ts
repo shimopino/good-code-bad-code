@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { Member } from './Member';
 import { FlagLogicV1 } from './V1/FlagLogicV1';
 import { DamageLogicV2 } from './V2/DamageLogic';
+import { ApplyDamageLogic } from './V3/ApplyDamageLogic';
 
 describe('Flag', () => {
   describe('V1', () => {
@@ -38,6 +39,27 @@ describe('Flag', () => {
       });
 
       logic.magicPointDamage(30);
+      expect(member).toEqual({
+        hitPoint: 10 - 5,
+        magicPoint: 100 - 30,
+        state: 'fine',
+      });
+    });
+  });
+
+  describe('V3', () => {
+    it('ストラテジーパターンを使用して条件分岐の削除', () => {
+      const member = new Member(10, 100);
+      const logic = new ApplyDamageLogic(member);
+
+      logic.applyDamage('hitPoint', 5);
+      expect(member).toEqual({
+        hitPoint: 10 - 5,
+        magicPoint: 100,
+        state: 'fine',
+      });
+
+      logic.applyDamage('magicPoint', 30);
       expect(member).toEqual({
         hitPoint: 10 - 5,
         magicPoint: 100 - 30,
