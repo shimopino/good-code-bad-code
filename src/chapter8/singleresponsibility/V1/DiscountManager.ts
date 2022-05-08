@@ -2,8 +2,8 @@ import { ProductV1 } from './Product';
 import { ProductDiscountV1 } from './ProductDiscount';
 
 export class DiscountManagerV1 {
-  private discountProducts: ProductV1[] = [];
-  private totalPrice = 0;
+  public discountProducts: ProductV1[] = [];
+  public totalPrice = 0;
 
   public add(product: ProductV1, productDiscount: ProductDiscountV1) {
     if (product.id < 0) throw new Error('idは0以上で設定');

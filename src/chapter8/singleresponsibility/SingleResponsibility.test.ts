@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { DiscountManagerV1 } from './V1/DiscountManager';
 import { ProductV1 } from './V1/Product';
 import { ProductDiscountV1 } from './V1/ProductDiscount';
+import { SummerDiscountManagerV1 } from './V1/SummerDiscountManager';
 
 /**
  * ECサイトに機能追加する
@@ -42,6 +43,20 @@ describe('SingleResponsibility', () => {
         expect(discount).toEqual({
           discountProducts: [product],
           totalPrice: 9700,
+        });
+      });
+
+      it('夏季割引では300円割引と、上限を30000円にする', () => {
+        const product = new ProductV1(1, 'サンプル', 25000, true);
+        const discount = new SummerDiscountManagerV1();
+
+        discount.add(product);
+
+        expect(discount).toEqual({
+          discountManager: {
+            discountProducts: [product],
+            totalPrice: 24700,
+          },
         });
       });
     });
