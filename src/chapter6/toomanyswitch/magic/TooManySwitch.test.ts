@@ -4,8 +4,7 @@ import { MagicManagerV2 } from './MagicManagerV2';
 import { MagicV3 } from './MagicV3';
 import { Member } from './Member';
 import { AttackPower } from './V4/AttackPower';
-import { Fire } from './V4/Fire';
-import { MagicSwitchV4 } from './V4/MagicSwitch';
+import { MagicSwitchV4 } from './V4/MagicSwitchV4';
 
 describe('EarlyReturn', () => {
   describe('V1', () => {
