@@ -3,6 +3,9 @@ import { MagicManagerV1 } from './MagicManagerV1';
 import { MagicManagerV2 } from './MagicManagerV2';
 import { MagicV3 } from './MagicV3';
 import { Member } from './Member';
+import { AttackPower } from './V4/AttackPower';
+import { Fire } from './V4/Fire';
+import { MagicSwitchV4 } from './V4/MagicSwitch';
 
 describe('EarlyReturn', () => {
   describe('V1', () => {
@@ -64,6 +67,19 @@ describe('EarlyReturn', () => {
         attackPower: 225,
         costTechnicalPoint: 24,
       });
+    });
+  });
+
+  describe('V4', () => {
+    it('ストラテジーパターンを使用して switch 文を削除する', () => {
+      const member = new Member(5, 10, 15, 20);
+      const logic = new MagicSwitchV4(member);
+
+      // 使う側は、使用する魔法の種別のみを知っていればいい
+      // これも定数として型補完ができる
+      const ap = logic.magicAttack('fire');
+
+      expect(ap).toEqual(new AttackPower(22.5));
     });
   });
 });
