@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { LogicV1 } from './LogicV1';
 import { Member } from './Member';
+import { LogicV2 } from './LogicV2';
 
 /**
  * 実現したい機能
@@ -27,6 +28,23 @@ describe('EarlyBreak', () => {
         new Member(),
       ];
       const logic = new LogicV1();
+
+      const damage = logic.totalDamage(members);
+
+      expect(damage).toBe(30 * 1.1 * 5);
+    });
+  });
+
+  describe('V2', () => {
+    it('早期 break を使用してネスト構造を解消する', () => {
+      const members = [
+        new Member(),
+        new Member(),
+        new Member(),
+        new Member(),
+        new Member(),
+      ];
+      const logic = new LogicV2();
 
       const damage = logic.totalDamage(members);
 
