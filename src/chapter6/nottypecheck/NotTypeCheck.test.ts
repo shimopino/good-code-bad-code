@@ -3,6 +3,9 @@ import { Money } from './Money';
 import { PremiumRatesV1 } from './V1/PremiumRatesV1';
 import { RegularRatesV1 } from './V1/RegularRatesV1';
 import { TypeCheckLogic } from './V1/TypeCheckLogic';
+import { PremiumRatesV2 } from './V2/PremiumRatesV2';
+import { RegularRatesV2 } from './V2/RegularRatesV2';
+import { CallBusySeaconFeeLogic } from './V2/CallBusySeaconFeeLogic';
 
 describe('NotTypeCheck', () => {
   describe('V1', () => {
