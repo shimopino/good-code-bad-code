@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { Money } from './Money';
-import { PremiumRates } from './V1/PremiumRates';
-import { RegularRates } from './V1/RegularRates';
+import { PremiumRatesV1 } from './V1/PremiumRatesV1';
+import { RegularRatesV1 } from './V1/RegularRatesV1';
 import { TypeCheckLogic } from './V1/TypeCheckLogic';
 
 describe('NotTypeCheck', () => {
@@ -15,11 +15,25 @@ describe('NotTypeCheck', () => {
     it('インターフェースを使用して型チェックで分岐を表現する', () => {
       const logic = new TypeCheckLogic();
 
-      const premiumRates = new PremiumRates();
+      const premiumRates = new PremiumRatesV1();
       const premiumFee = logic.getBusySeaconFee(premiumRates);
       expect(premiumFee).toEqual(new Money(17000));
 
-      const regularRates = new RegularRates();
+      const regularRates = new RegularRatesV1();
+      const regularFee = logic.getBusySeaconFee(regularRates);
+      expect(regularFee).toEqual(new Money(10000));
+    });
+  });
+
+  describe('V2', () => {
+    it('リスコフの置換原則を使用して基本型と継承型の置換を行う', () => {
+      const logic = new CallBusySeaconFeeLogic();
+
+      const premiumRates = new PremiumRatesV2();
+      const premiumFee = logic.getBusySeaconFee(premiumRates);
+      expect(premiumFee).toEqual(new Money(17000));
+
+      const regularRates = new RegularRatesV2();
       const regularFee = logic.getBusySeaconFee(regularRates);
       expect(regularFee).toEqual(new Money(10000));
     });

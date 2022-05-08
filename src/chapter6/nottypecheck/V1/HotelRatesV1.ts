@@ -1,5 +1,5 @@
 import { Money } from '../Money';
 
-export interface HotelRates {
+export interface HotelRatesV1 {
   fee(): Money;
 }
