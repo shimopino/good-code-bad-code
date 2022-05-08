@@ -35,7 +35,7 @@ describe('LowCoherenceCollection', () => {
       expect(addedParty.getMembers()).toEqual([new Member(1)]);
     });
 
-    it('プリミティブな配列オブジェクトは操作できない', () => {
+    it('プリミティブな配列オブジェクトへの可変操作はできない', () => {
       const party = new PartyV2();
       const freezeMembers = party.getMembers();
 
