@@ -3,6 +3,9 @@ import { DiscountManagerV1 } from './V1/DiscountManager';
 import { ProductV1 } from './V1/Product';
 import { ProductDiscountV1 } from './V1/ProductDiscount';
 import { SummerDiscountManagerV1 } from './V1/SummerDiscountManager';
+import { RegularDiscountPrice } from './V2/RegularDiscountPrice';
+import { RegularPrice } from './V2/RegularPrice';
+import { SummerDiscountPrice } from './V2/SummerDiscountPrice';
 
 /**
  * ECサイトに機能追加する
@@ -63,6 +66,18 @@ describe('SingleResponsibility', () => {
   });
 
   describe('V2', () => {
-    it('', () => {});
+    it('通常割引価格と夏季限定割引価格を専用クラスから取得する', () => {
+      const price = new RegularPrice(10000);
+
+      const regularDiscount = new RegularDiscountPrice(price);
+      const summerDiscount = new SummerDiscountPrice(price);
+
+      expect(regularDiscount).toEqual({
+        amount: 9600, // 通常割引
+      });
+      expect(summerDiscount).toEqual({
+        amount: 9700, // 夏季割引
+      });
+    });
   });
 });
