@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { Member } from './Member';
 import { FlagLogicV1 } from './V1/FlagLogicV1';
+import { DamageLogicV2 } from './V2/DamageLogic';
 
 describe('Flag', () => {
   describe('V1', () => {
@@ -16,6 +17,27 @@ describe('Flag', () => {
       });
 
       logic.damage(false, 30);
+      expect(member).toEqual({
+        hitPoint: 10 - 5,
+        magicPoint: 100 - 30,
+        state: 'fine',
+      });
+    });
+  });
+
+  describe('V2', () => {
+    it('フラグで分岐させていた分だけメソッドを分離する', () => {
+      const member = new Member(10, 100);
+      const logic = new DamageLogicV2(member);
+
+      logic.hitPointDamage(5);
+      expect(member).toEqual({
+        hitPoint: 10 - 5,
+        magicPoint: 100,
+        state: 'fine',
+      });
+
+      logic.magicPointDamage(30);
       expect(member).toEqual({
         hitPoint: 10 - 5,
         magicPoint: 100 - 30,
