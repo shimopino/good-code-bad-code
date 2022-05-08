@@ -16,11 +16,11 @@ describe('NotTypeCheck', () => {
       const logic = new TypeCheckLogic();
 
       const premiumRates = new PremiumRates();
-      const premiumFee = logic.getFee(premiumRates);
+      const premiumFee = logic.getBusySeaconFee(premiumRates);
       expect(premiumFee).toEqual(new Money(17000));
 
       const regularRates = new RegularRates();
-      const regularFee = logic.getFee(regularRates);
+      const regularFee = logic.getBusySeaconFee(regularRates);
       expect(regularFee).toEqual(new Money(10000));
     });
   });
