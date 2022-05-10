@@ -16,6 +16,6 @@ describe('PublicCoupling', () => {
   });
 
   describe('V2', () => {
-    it('');
+    it.todo('TypeScriptでのpackage privateの実現方法を考える');
   });
 });
